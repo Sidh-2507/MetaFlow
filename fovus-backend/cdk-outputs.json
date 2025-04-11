@@ -1,0 +1,8 @@
+{
+  "FovusBackendStack": {
+    "APIEndpoint": "https://6gkguovd32.execute-api.us-east-2.amazonaws.com/prod/",
+    "FovusAPIEndpoint0E9BAA54": "https://6gkguovd32.execute-api.us-east-2.amazonaws.com/prod/",
+    "DynamoDBTableName": "FovusBackendStack-FileTableE63FDBC8-1H1URVQUIP96M",
+    "S3BucketName": "fovusbackendstack-fovusinputbucket371f3745-ch6ilmafhsby"
+  }
+}
