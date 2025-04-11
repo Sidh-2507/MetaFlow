@@ -105,7 +105,7 @@ fovus-Task/
 
       {
       id: "user@example.com",
-      outputFilePath: "bucket/username/Krima.output"
+      outputFilePath: "bucket/username/user.output"
       }
 
    7. Test User Credentials
