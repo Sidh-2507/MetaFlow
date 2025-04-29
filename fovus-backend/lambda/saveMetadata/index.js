@@ -30,13 +30,17 @@ exports.handler = async (event) => {
 
     await dbClient.send(new PutItemCommand(params));
 
-    return {
+    const response = {
       statusCode: 200,
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({ message: "Metadata saved successfully" }),
     };
+
+    console.log("Lambda Success Response:", response);
+
+    return response;
   } catch (error) {
     console.error("Error:", error);
     return {
