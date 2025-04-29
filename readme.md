@@ -105,7 +105,7 @@ fovus-Task/
 
       {
       id: "user@example.com",
-      outputFilePath: "bucket/username/Krima.output"
+      outputFilePath: "bucket/username/user.output"
       }
 
    7. Test User Credentials
@@ -138,9 +138,9 @@ fovus-Task/
    - **Responsive UI Built with TailwindCSS + React**  
      The frontend uses TailwindCSS with Flowbite components to provide a clean, modern, and fully responsive user experience across devices.
 
-8. Full screen recording of app flow and implementation is here uploaded on drive
+8. Full screen recording of app flow, Code Process and implementation is here uploaded on drive
 
-   - Drive Link - :https://drive.google.com/file/d/1BouIXETD8t6-6DTkmemLnNpsDaxKzBqH/view?usp=sharing
+   - Screen Recorder Video Link - :https://drive.google.com/file/d/17AH9-RVG6NsVhbt7AIrkK2VUE4Pa8SAR/view?usp=sharing
 
 9. Security Best Practices Followed
    No AWS credentials in frontend/backend code
