@@ -1,6 +1,8 @@
-const { DynamoDBClient, PutItemCommand } = require("@aws-sdk/client-dynamodb");
+const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
+const { DynamoDBDocumentClient, PutCommand } = require("@aws-sdk/lib-dynamodb");
 
 const dbClient = new DynamoDBClient({});
+const dbDocclient = DynamoDBDocumentClient.from(dbClient);
 
 exports.handler = async (event) => {
   try {
@@ -20,15 +22,16 @@ exports.handler = async (event) => {
     const params = {
       TableName: process.env.TABLE_NAME,
       Item: {
-        id: { S: id },
-        email: { S: email },
-        inputText: { S: inputText },
-        inputFilePath: { S: inputFilePath },
-        flag: { S: "True" },
+        id: id,
+        email: email,
+        inputText: inputText,
+        inputFilePath: inputFilePath,
+        flag: "True",
       },
     };
 
-    await dbClient.send(new PutItemCommand(params));
+    //await dbClient.send(new PutItemCommand(params)); //To use dbClient
+    await dbDocclient.send(new PutCommand(params)); //To use dbDocumentClient
 
     const response = {
       statusCode: 200,
