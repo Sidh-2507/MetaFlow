@@ -1,10 +1,11 @@
 const { EC2Client, RunInstancesCommand } = require("@aws-sdk/client-ec2");
 
-const ec2 = new EC2Client({ region: "us-east-2" });
+const region = process.env.REGION;
+const ec2 = new EC2Client({ region: region });
 
 const bucketName = process.env.BUCKET_NAME;
 const dbName = process.env.TABLE_NAME;
-const region = process.env.REGION;
+
 exports.handler = async (event) => {
   console.log("Received event:", JSON.stringify(event, null, 2));
 
@@ -26,7 +27,7 @@ exports.handler = async (event) => {
 
       const userDataScript = `#!/bin/bash
       pip3 install boto3
-      aws s3 cp s3://fovusbackendstack-fovusinputbucket371f3745-ch6ilmafhsby/scripts/script.py /tmp
+      aws s3 cp s3://${bucketName}/scripts/script.py /tmp
       chmod +x /tmp/script.py
       python3 /tmp/script.py ${id} ${bucketName} ${dbName} ${email} ${region} >output.txt
       sudo shutdown -h now`;
@@ -34,7 +35,7 @@ exports.handler = async (event) => {
       const encodedUserData = Buffer.from(userDataScript).toString("base64");
 
       const params = new RunInstancesCommand({
-        ImageId: "ami-01aa505ae84816186",
+        ImageId: process.env.IMAGE_ID,
         InstanceType: "t2.micro",
         MinCount: 1,
         MaxCount: 1,
@@ -42,7 +43,7 @@ exports.handler = async (event) => {
         IamInstanceProfile: {
           Name: "FovusEc2InstanceProfile",
         },
-        KeyName: "dev",
+        //KeyName: "dev",
         NetworkInterfaces: [
           {
             DeviceIndex: 0,

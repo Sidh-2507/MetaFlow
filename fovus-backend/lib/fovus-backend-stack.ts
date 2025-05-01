@@ -172,6 +172,9 @@ export class FovusBackendStack extends cdk.Stack {
     );
     inputBucket.grantPut(presignFunction);
 
+    const ami = ec2.MachineImage.latestAmazonLinux2();
+    const amiId = ami.getImage(this).imageId;
+
     const triggerEc2Function = new lambda.Function(this, "TriggerEc2Function", {
       runtime: lambda.Runtime.NODEJS_20_X,
       handler: "index.handler",
@@ -182,6 +185,7 @@ export class FovusBackendStack extends cdk.Stack {
         REGION: this.region,
         SUBNET_ID: vpc.publicSubnets[0].subnetId,
         SG_ID: ec2SG.securityGroupId,
+        IMAGE_ID: amiId,
       },
     });
 
