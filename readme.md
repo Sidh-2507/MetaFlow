@@ -1,4 +1,4 @@
-# Fovus Coding Challenge Submission — Siddharth Trivedi
+# MetaFlow – AI-Powered File Processing System
 
 This is a full-stack serverless web application built using AWS CDK, Cognito, Lambda, EC2, S3, DynamoDB, and React. It enables authenticated users to upload a file via a secure web interface. The file is stored in S3, metadata is saved in DynamoDB, and an EC2 instance is triggered to process the input and generate an output file — all without any manual intervention.
 
@@ -6,7 +6,7 @@ This is a full-stack serverless web application built using AWS CDK, Cognito, La
 
 ## Project Structure
 
-fovus-Task/
+MetaFlow/
 ├── backend/ # AWS CDK + Lambda functions
 ├── frontend/ # React app with Cognito authentication
 ├── README.md # ← You're here
@@ -138,9 +138,6 @@ fovus-Task/
    - **Responsive UI Built with TailwindCSS + React**  
      The frontend uses TailwindCSS with Flowbite components to provide a clean, modern, and fully responsive user experience across devices.
 
-8. Full screen recording of app flow, Code Process and implementation is here uploaded on drive
-
-   - Screen Recorder Video Link - :https://drive.google.com/file/d/17AH9-RVG6NsVhbt7AIrkK2VUE4Pa8SAR/view?usp=sharing
 
 9. Security Best Practices Followed
    No AWS credentials in frontend/backend code
